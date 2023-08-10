@@ -3,8 +3,7 @@
 describe("Testing", () => {
 
 
-
-    it("Login", () => {
+    it("Domestic RT 1 PAX Zero Fare before 72 hours", () => {
         const testdataa = new testData();
 
 
@@ -16,7 +15,6 @@ describe("Testing", () => {
 
         cy.wait(2000);
         cy.get('[class="ng-star-inserted"]').contains('Acapulco').should('be.visible').click();
-
         cy.get('[class="btn-calendar d-none d-md-block mat-flat-button mat-button-base mat-secondary"]')
             .click();
         cy.get('[class="btn btn-large col-12 search-btn mat-flat-button mat-button-base mat-primary"]')
@@ -32,16 +30,18 @@ describe("Testing", () => {
 
         cy.get('[id="Flightlists"]').contains('keyboard_arrow_down').eq(0).click();
         cy.contains('Select').eq(0).click();
-
         cy.get('[id="Flightlists"]').contains('keyboard_arrow_down').eq(0).click();
         cy.get('[class="benefitsList ng-star-inserted uplift"]').eq(0).click({ force: true });
-
         cy.get('[aria-label="Close"]').click({ force: true });
+        cy.get('[id="mat-checkbox-1-input"]').click({ force: true });
+        cy.get('[class="icon-keyboard_next"]').click({ force: true });
 
-        cy.get('[class="check"]').click({ force: true });
+        cy.wait(5000);
+        cy.get('button[class="btn btn-small mat-flat-button mat-button-base mat-secondary"]').click({ force: true });
 
-        cy.get('[aria-label="Continue To Seat"]').click({ force: true });
 
+        cy.get('[formcontrolname="fName"]').type('Erza');
+        cy.get('[formcontrolname="lName"]').type('Scarlet');
 
     })
 
