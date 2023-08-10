@@ -42,7 +42,36 @@ describe("Testing", () => {
 
         cy.get('[formcontrolname="fName"]').type('Erza');
         cy.get('[formcontrolname="lName"]').type('Scarlet');
+        cy.get('[formcontrolname="dobDay"]').eq(0).click();
+        cy.get('[formcontrolname="dobMonth"]').contains('Jan').click();
+        cy.get('[formcontrolname="dobYear"]').contains(2000).click();
+        cy.get('[id="mat-input-32"]').eq(0).click();
 
+        cy.get('button[class="btn continue mat-flat-button mat-button-base btn-large mat-primary"]')
+            .click({ force: true });
+
+        cy.get('[id = "mat-checkbox-12-input"]').eq(0).click();
+
+        cy.get('[formcontrolname="email"]').type('fairytale01@yopmail.com');
+        cy.get('[formcontrolname="verifyEmail"]').type('fairytale01@yopmail.com');
+
+
+        cy.get('[formcontrolname="phoneNumber"]').type('fairytale01@yopmail.com');
+
+        cy.get('[id="mat-checkbox-10-input"]').click();
+        cy.get('button[class="btn mat-flat-button mat-button-base btn-large mat-primary"]')
+            .click({ force: true });
+
+
+        cy.get('[formcontrolname="cardNumber"]').type('5555444433331111');
+
+        cy.get('[formcontrolname="cardExpMonth"]').eq(9).click();
+        cy.get('[formcontrolname="cardExpYear"]').eq(7).click();
+        cy.get('[formcontrolname="cardCVV"]').type(737);
+
+        cy.get('[id="mat-checkbox-13-input"]').type('fairytale01@yopmail.com');
+        cy.get('button[class="btn btn-large pay-my-trip mat-flat-button mat-button-base mat-primary"]')
+            .click({ force: true });
     })
 
     class testData {
