@@ -93,12 +93,11 @@ describe("Testing", () => {
             .click();
 
         cy.wait(10000);
-        cy.get('[class="code"]').invoke("text").then(text => {
-            cy.task("setData", { text });
-        });
-        cy.task("getData").then(({text})=>{
-            cy.get("input").type(text);
-        });
+
+        /*  url: 'https://apigw.volaris.com/dev/api/booking',*/
+
+        cy.get('[class="reservationDetails"]').find('[class="code"]').invoke('val').as('name')
+        cy.get('@name').then((cy.log))
     })
 
     class testData {
